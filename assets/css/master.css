@@ -2,13 +2,13 @@
 
 :root {
     --primary: #cda04f;
-    --secondary: #FFC371;
-    --light: #F5F5F5;
-    --dark: #212529;
-    --white: #ffffff;
-    --gradient-primary: linear-gradient(89deg, rgba(255, 95, 109, 1) 0%, rgba(255, 195, 113, 1) 51%);
-    --gradient-primary-inverse: linear-gradient(to right, #FFC371 0%, #cda04f 100%);
-    --gradient-primary-color: linear-gradient(45deg, #ff6a6a, #fcd283);
+    --secondary: #c78f28;
+    --light: #121212;
+    --dark: #000000;
+    --white: #fff;
+    --gradient-primary: linear-gradient(89deg, rgba(229, 62, 62, 1) 0%, rgba(155, 44, 44, 1) 51%);
+    --gradient-primary-inverse: linear-gradient(to right, #cda04f 0%, #cda04f 100%);
+    --gradient-primary-color: linear-gradient(45deg, #cda04f, #cda04f);
 }
 
 /*** Spinner ***/
@@ -24,8 +24,8 @@ body {
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
-    color: var(--dark);
-    background-color: var(--white);
+    color: var(--white);
+    background-color: var(--dark);
     margin: 0;
     padding: 0;
     position: relative;
@@ -42,9 +42,14 @@ body {
     }
 }
 
+.footer {
+    border-top: 1px solid var(--white);
+}
+
 .footer-img {
-    width: 200px;
+    width: 150px;
     mix-blend-mode: screen;
+    background: var(--white);
 }
 
 .text-primary {
@@ -95,7 +100,7 @@ h4,
 h5,
 h6 {
     font-family: "Lexend Deca", sans-serif;
-    color: var(--dark);
+    color: var(--white);
 }
 
 h1 {
@@ -111,7 +116,7 @@ h5 {
 
 p {
     font-family: "Manrope", sans-serif;
-    color: var(--dark);
+    color: var(--white);
 }
 
 a {
@@ -445,7 +450,7 @@ textarea {
 
 .btn.btn-primary,
 .btn.btn-outline-primary:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-outline-primary {
@@ -457,6 +462,7 @@ textarea {
 .btn-outline-primary:focus {
     background-color: var(--primary);
     border-color: var(--primary);
+    color: #ffffff;
 }
 
 .btn-square {
@@ -508,10 +514,14 @@ textarea {
     height: 75px;
 }
 
+.navbar .navbar-brand {
+    background: var(--white);
+}
+
 .navbar .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: var(--dark);
+    color: var(--white);
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
@@ -625,8 +635,8 @@ textarea {
     width: 45px;
     height: 45px;
     margin: 5px 0;
-    background: #FFFFFF;
-    box-shadow: 0 0 30px rgba(255, 255, 255, .9);
+    background: #121212;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     border-radius: 45px;
     transition: .5s;
 }
@@ -695,7 +705,48 @@ textarea {
 
 /*** Service ***/
 .service-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    background: linear-gradient(135deg, #FFD700, #FFC107, #FFB300);
+    color: #000;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine effect */
+.service-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+/* Hover effects */
+.service-item:hover::before {
+    left: 125%;
+}
+
+.service-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 193, 7, 0.5);
+}
+
+/* Optional: text styling */
+.service-item h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 14px;
+    opacity: 0.9;
 }
 
 .service-icon {
@@ -707,8 +758,8 @@ textarea {
     align-items: center;
     justify-content: center;
     color: var(--primary);
-    background: #FFFFFF;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    background: #121212;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .5);
     transition: .5s;
 }
 
@@ -718,7 +769,7 @@ textarea {
 }
 
 .service-item a {
-    color: var(--primary);
+    color: var(--dark);
 }
 
 .service-item a:hover,
@@ -772,7 +823,20 @@ textarea {
 
 .portfolio-img {
     position: relative;
+    overflow: hidden;
 }
+
+.portfolio-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.15);
+}
+
 
 .portfolio-img::after {
     position: absolute;
@@ -787,6 +851,10 @@ textarea {
 .portfolio-item:hover .portfolio-img::after {
     width: 100%;
     right: 0;
+}
+
+.portfolio-item h5 {
+    color: var(--white);
 }
 
 .portfolio-btn {
@@ -855,7 +923,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    background: #FFFFFF;
+    background: #1a1a1a;
     transition: .5s;
 }
 
@@ -868,7 +936,7 @@ textarea {
     left: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
@@ -879,7 +947,7 @@ textarea {
     right: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
@@ -1021,13 +1089,34 @@ textarea {
     box-shadow: none;
 }
 
+.pdf-card {
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.pdf-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background: #1a1a1a !important;
+}
+
+.pdf-card i {
+    transition: transform 0.4s ease;
+}
+
+.pdf-card:hover i {
+    transform: scale(1.2);
+}
+
+
 .footer .copyright {
     padding: 25px 0;
     border-top: 1px solid rgba(256, 256, 256, .1);
 }
 
 .footer .copyright a {
-    color: var(--light);
+    color: var(--primary);
 }
 
 .footer .copyright a:hover {
